@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Questions</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="addQuestion()"><ion-icon name="md-add-circle"></ion-icon></button>
+  </ion-fab>
+
+  <ion-item>
+    <ion-label>Choose your group:</ion-label>
+    <ion-select [(ngModel)]="selectedGroup" (ngModelChange)="groupTapped($event, selectedGroup)">
+      <ion-option *ngFor="let group of groups" [value]=group.groupName>{{group.title}}</ion-option>
+    </ion-select>
+  </ion-item>
+
+  <ion-list>
+
+    <ion-card *ngFor="let question of questions" (click)="getAnswersForQuestion($event, question._id)" [class]="'card card-md student-type-' + question.userWhoAskedId.studentType">
+
+      <ion-item>
+        <ion-avatar item-left>
+          <img [src]=question.userWhoAskedId.picture>
+        </ion-avatar>
+        <h2 [class]="'student-type-' + question.userWhoAskedId.studentType">{{ question.userWhoAskedId.displayName }}</h2>
+        <p [class]="'student-type-' + question.userWhoAskedId.studentType">
+          {{ filterStudentsType(question.userWhoAskedId.studentType) }}
+        </p>
+      </ion-item>
+
+      <ion-card-content>
+        <p [innerHTML]="question.questionText"></p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>12 Likes</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>4 Comments</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            {{ question.dateAsked | date:'short' }}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+
+  </ion-list>
+
+</ion-content>

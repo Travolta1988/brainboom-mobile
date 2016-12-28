@@ -1,0 +1,84 @@
+@import "variables";
+
+p, h2 {
+  &.student-type-0 {
+    color: $studentType0;
+    font-weight: bold;
+  }
+
+  &.student-type-1 {
+    color: $studentType1;
+    font-weight: bold;
+  }
+
+  &.student-type-2 {
+    color: $studentType2;
+    font-weight: bold;
+  }
+
+  &.student-type-3 {
+    color: $studentType3;
+    font-weight: bold;
+  }
+
+  &.student-type-4 {
+    color: $studentType4;
+    font-weight: bold;
+  }
+
+  &.student-type-5 {
+    color: $studentType5;
+    font-weight: bold;
+  }
+}
+
+ion-card {
+  &.student-type-0 {
+    background: $studentType0;
+    background: rgba($studentType0, 0.1);
+    ion-item {
+      background: $studentType0;
+      background: rgba($studentType0, 0.1);
+    }
+  }
+  &.student-type-1 {
+    background: $studentType1;
+    background: rgba($studentType1, 0.1);
+    ion-item {
+      background: $studentType1;
+      background: rgba($studentType1, 0.1);
+    }
+  }
+  &.student-type-2 {
+    background: $studentType2;
+    background: rgba($studentType2, 0.1);
+    ion-item {
+      background: $studentType2;
+      background: rgba($studentType2, 0.1);
+    }
+  }
+  &.student-type-3 {
+    background: $studentType3;
+    background: rgba($studentType3, 0.1);
+    ion-item {
+      background: $studentType3;
+      background: rgba($studentType3, 0.1);
+    }
+  }
+  &.student-type-4 {
+    background: $studentType4;
+    background: rgba($studentType4, 0.1);
+    ion-item {
+      background: $studentType4;
+      background: rgba($studentType4, 0.1);
+    }
+  }
+  &.student-type-5 {
+    background: $studentType5;
+    background: rgba($studentType5, 0.1);
+    ion-item {
+      background: $studentType5;
+      background: rgba($studentType5, 0.1);
+    }
+  }
+}

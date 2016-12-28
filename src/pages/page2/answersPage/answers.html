@@ -1,0 +1,102 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Answers {{page}}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+
+  <ion-fab right bottom>
+    <button ion-fab (click)="addAnswer()"><ion-icon name="md-add-circle"></ion-icon></button>
+  </ion-fab>
+
+  <!--CURRENT QUESTION-->
+
+  <ion-card *ngFor="let cq of currentQuestion" [class]="'card card-md student-type-' + cq.userWhoAskedId.studentType">
+    <ion-item>
+      <ion-avatar item-left>
+        <img [src]=cq.userWhoAskedId.picture>
+      </ion-avatar>
+      <h2 [class]="'student-type-' + cq.userWhoAskedId.studentType">{{ cq.userWhoAskedId.displayName }}</h2>
+      <p [class]="'student-type-' + cq.userWhoAskedId.studentType">{{ filterStudentsType(cq.userWhoAskedId.studentType) }}</p>
+    </ion-item>
+
+    <ion-card-content>
+      <p [innerHTML]="cq.questionText"></p>
+    </ion-card-content>
+
+    <ion-row>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="thumbs-up"></ion-icon>
+          <div>12 Likes</div>
+        </button>
+      </ion-col>
+      <ion-col>
+        <button ion-button icon-left clear small>
+          <ion-icon name="text"></ion-icon>
+          <div>4 Comments</div>
+        </button>
+      </ion-col>
+      <ion-col center text-center>
+        <ion-note>
+          {{ cq.dateAnswered | date:'short' }}
+        </ion-note>
+      </ion-col>
+    </ion-row>
+  </ion-card>
+
+  <!---->
+
+  <ion-item-divider ion-item light no-lines style="font-size: 1.3rem">
+    Total answers:
+    <span item-right>
+      {{ answers.length }}
+      <ion-icon name="ios-bulb"></ion-icon>
+    </span>
+  </ion-item-divider>
+
+  <ion-list>
+
+    <ion-card *ngFor="let answer of answers" [class]="'card card-md student-type-' + answer.userWhoAnsweredId.studentType">
+
+      <ion-item>
+        <ion-avatar item-left>
+          <img [src]=answer.userWhoAnsweredId.picture>
+        </ion-avatar>
+        <h2 [class]="'student-type-' + answer.userWhoAnsweredId.studentType">{{ answer.userWhoAnsweredId.displayName }}</h2>
+        <p [class]="'student-type-' + answer.userWhoAnsweredId.studentType">{{ filterStudentsType(answer.userWhoAnsweredId.studentType) }}</p>
+      </ion-item>
+
+      <ion-card-content>
+        <p [innerHTML]="answer.answerText"></p>
+      </ion-card-content>
+
+      <ion-row>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="thumbs-up"></ion-icon>
+            <div>12 Likes</div>
+          </button>
+        </ion-col>
+        <ion-col>
+          <button ion-button icon-left clear small>
+            <ion-icon name="text"></ion-icon>
+            <div>4 Comments</div>
+          </button>
+        </ion-col>
+        <ion-col center text-center>
+          <ion-note>
+            {{ answer.dateAnswered | date:'short' }}
+          </ion-note>
+        </ion-col>
+      </ion-row>
+
+    </ion-card>
+
+  </ion-list>
+
+</ion-content>
