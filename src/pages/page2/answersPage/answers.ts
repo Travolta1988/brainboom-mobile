@@ -15,7 +15,7 @@ export class AnswersPage {
   answers: any[];
   questionId: string;
   studentTypes: any[];
-  currentQuestion: any[];
+  currentQuestion: any;
 
   constructor(
     public navParams: NavParams,
@@ -40,7 +40,7 @@ export class AnswersPage {
     this.apiService.getAnswers(this.questionId)
       .subscribe(
         data => {
-          this.answers = JSON.parse(data['_body']);
+          this.answers = JSON.parse(data['_body']).answersList;
         },
         error => console.error('Error: ' + error),
         () => console.log('Completed!')
@@ -48,7 +48,6 @@ export class AnswersPage {
   }
 
   filterStudentsType(type){
-    console.log(type)
     let studType = this.studentTypes.find((item)=>{
       return this.studentTypes[this.studentTypes.indexOf(item)].id === type;
     });
