@@ -28,6 +28,7 @@
   },
   "devDependencies": {
     "@ionic/app-scripts": "0.0.47",
+    "ng2-facebook-sdk": "^1.1.0",
     "typescript": "2.0.9"
   },
   "cordovaPlugins": [

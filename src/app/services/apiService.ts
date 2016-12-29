@@ -42,4 +42,8 @@ export class ApiService {
   answerQuestion(data){
     return this.http.post(this.Constants.API_DEV_URL + '/answers/' + data.questionId, data)
   }
+
+  getCurrentUserProfile(){
+    return this.http.get(this.Constants.API_DEV_URL + '/api/me');
+  }
 }

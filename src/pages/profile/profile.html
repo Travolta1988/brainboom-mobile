@@ -3,19 +3,18 @@
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
     </button>
-    <ion-title>Page {{page}}</ion-title>
+    <ion-title>My profile</ion-title>
   </ion-navbar>
 </ion-header>
 
 <ion-content padding>
 
   <ion-list>
-    <ion-item *ngFor="let el of arr" (click)="selectUser($event, el)">
+    <ion-item>
       <ion-avatar item-left>
-        <img [src]=el.picture>
+        <img [src]='currentUser.picture'>
       </ion-avatar>
-      <h2>{{ el.displayName }}</h2>
-      <p>{{ el.email }}</p>
+      <h2>{{currentUser.displayName}}</h2>
     </ion-item>
   </ion-list>
 

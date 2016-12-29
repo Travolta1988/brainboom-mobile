@@ -10,7 +10,7 @@
   <link rel="icon" type="image/x-icon" href="assets/icon/favicon.ico">
   <link rel="manifest" href="manifest.json">
   <meta name="theme-color" content="#4e8ef7">
-  
+
   <!-- cordova.js required for cordova apps -->
   <script src="cordova.js"></script>
 
@@ -36,6 +36,18 @@
 
   <!-- The bundle js is generated during the build process -->
   <script src="build/main.js"></script>
+
+  <script type="text/javascript" src="https://connect.facebook.net/en_US/sdk.js"></script>
+  <script>
+    FB.init({
+      appId      : '386491815025282', // App ID
+      status     : false,
+      version    : 'v2.5',
+      oauth: true,
+      cookie     : true,
+      xfbml      : false  // parse XFBML
+    });
+  </script>
 
 </body>
 </html>
